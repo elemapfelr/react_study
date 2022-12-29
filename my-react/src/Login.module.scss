@@ -1,0 +1,324 @@
+// @import "./scss/reset", "./scss/color", "./scss/animation";
+@import "./scss/color", "./scss/animation";
+
+span{
+    &.version{
+        color: $point;
+        font-size: .8rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        b{
+            font-weight: 500;
+        }
+    }
+}
+
+.wrap {
+    width: 100%;
+    height: 100vh;
+    font-family: 'Noto Sans KR', sans-serif;
+    display: flex;
+    align-items: center;
+    background-color: $point-darkest;
+    min-width: 400px;
+    position: relative;
+
+    .login {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+        border: 1px solid $point-darkest;
+        margin: 0 auto;
+        padding: 30px 0;
+
+        img {
+            display: block;
+            width: 200px;
+            height: auto;
+            margin: 0 auto;
+
+            &.logo {
+                padding: 15px 0;
+            }
+        }
+
+        .loginBox {
+            width: 90%;
+            height: auto;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .leftBox {
+                width: 80%;
+                height: auto;
+
+                .input {
+                    width: 100%;
+                    max-width: 1000px;
+                    height: 50px;
+                    display: block;
+                    margin: 0 auto;
+                    border: 0px solid $gray-light;
+                    text-indent: 10px;
+                }
+
+                .idDiv {
+                    width: 100%;
+                    height: auto;
+                    margin: 0 auto;
+                    padding: .5rem 0;
+                    position: relative;
+
+                    span {
+                        color: $white;
+                        margin-bottom: .5rem;
+                        display: block;
+
+                        &.chkId {
+                            position: absolute;
+                            top: 50%;
+                            right: 0;
+                            transform: translate(-10%, -50%);
+                            color: $crush;
+                            font-size: .8rem;
+                            font-weight: 300;
+                            display: none;
+
+                            &.active{
+                                display: block;
+                                animation-name: shake;
+                                animation-duration: .5s;
+                            }
+                        }
+                    }
+                }
+
+                .pwDiv {
+                    width: 100%;
+                    height: auto;
+                    margin: 0 auto;
+                    padding: .5rem 0;
+                    position: relative;
+
+                    span {
+                        color: $white;
+                        margin-bottom: .5rem;
+                        display: block;
+
+                        &.chkPw {
+                            position: absolute;
+                            top: 50%;
+                            right: 0;
+                            transform: translate(-10%, -50%);
+                            color: $crush;
+                            font-size: .8rem;
+                            font-weight: 300;
+                            display: none;
+
+                            &.active{
+                                display: block;
+                                animation-name: shake;
+                                animation-duration: .5s;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .rightBox {
+                width: 18%;
+                height: auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .loginOkBtn {
+                    width: 100%;
+                    height: 120px;
+                    display: block;
+                    border: 0;
+                    border-radius: 0;
+                    background: $point;
+                    color: $fff;
+                    cursor: pointer;
+
+                    &:active {
+                        background: $point-dark;
+                    }
+                }
+            }
+        }
+
+        .idSaveDiv {
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+
+            label.checkBox {
+                width: 15px;
+                height: 15px;
+                border: 3px solid transparentize($gray, .3);
+                border-radius: 5px;
+                position: relative;
+                transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s;
+                cursor: pointer;
+                display: block;
+                transform: scale(.8);
+            }
+            input.chkBox {
+                display: none;
+            }
+
+            input.chkBox:checked+label.checkBox {
+                background-color: $point;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: -1px;
+                    left: 3px;
+                    width: 10px;
+                    height: 13px;
+                    box-shadow: inset 3px 3px $fff;
+                    transform: rotate(-135deg);
+                }
+            }
+            span {
+                color: $gray-light;
+                margin-left: 5px;
+                font-size: .8rem;
+            }
+        }
+
+        .ssoLogin {
+            width: 90%;
+            height: auto;
+            margin: 1rem auto;
+
+            a {
+                width: 80%;
+                height: auto;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: .5rem auto;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+    }
+
+    .alert_modal {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.3333333333);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+
+        .alert_layerPopup {
+            max-width: 800px;
+            height: auto;
+            background-color: $white;
+            box-sizing: border-box;
+            border-radius: 5px;
+
+            .alert_popupHead {
+                width: 95%;
+                height: auto;
+                margin: 0 auto;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 1px solid $gray-light;
+                padding: 5px;
+                box-sizing: border-box;
+
+                h3 {
+                    color: $gray;
+                    font-weight: 500;
+                }
+
+                i {
+                    color: $crush;
+                    opacity: 0.8;
+                    font-size: 1.2rem;
+                    padding: 5px;
+                    cursor: pointer;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            .alert_popupBody {
+                width: 100%;
+                height: auto;
+                padding: 10px 50px;
+                box-sizing: border-box;
+
+                .box {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    p {
+                        font-size: 1.2rem;
+                        font-weight: 300;
+                        word-break: break-all;
+
+                        small {
+                            font-size: 1rem;
+                            word-break: break-all;
+                            color: $gray;
+                        }
+                    }
+                }
+            }
+
+            .alert_btnBox {
+                width: 95%;
+                height: auto;
+                margin: 0 auto;
+                box-sizing: border-box;
+                padding: 10px 0;
+
+                button {
+                    border: none;
+                    box-shadow: none;
+                    outline: none;
+                    padding: 10px;
+                    color: $fff;
+                    cursor: pointer;
+                    display: block;
+                    margin: 0 auto;
+
+                    &.point{
+                        background-color: $point;
+                    }
+
+                    &.crush{
+                        background-color: $crush;
+                    }
+
+                    &.gray{
+                        background-color: $gray;
+                    }
+                }
+            }
+        }
+    }
+}

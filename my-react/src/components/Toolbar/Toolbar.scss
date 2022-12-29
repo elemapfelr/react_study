@@ -1,0 +1,92 @@
+@import "./../../scss/color";
+
+.toolbar {
+    width: 100%;
+    // height: 50px;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .leftToolBar{
+        display: flex;
+        align-items: center;
+
+        p{
+            font-size: .8rem;
+            color: $gray;
+            margin: 0 .5rem;
+        }
+
+        span.slash {
+            font-size: .7rem;
+            color: $gray;
+            margin: 0 .5rem;
+        }
+
+        a.siteMap {
+            font-size: .8rem;
+            color: $point;
+            text-decoration: underline;
+            margin-left: 1rem;
+        }
+    }
+
+    .rightToolBar{
+        display: flex;
+        align-items: center;
+
+        span.manual {
+            display: flex;
+            align-items: center;
+            font-size: .8rem;
+            color: $point;
+            cursor: pointer;
+            padding: 0 1rem;
+
+            i {
+                font-size: 22px;
+                padding: 0 .5rem;
+                color: $point;
+            }
+        }
+
+        span.fullsize {
+            display: flex;
+            align-items: center;
+            font-size: .8rem;
+            color: $point;
+            cursor: pointer;
+            padding: 0 1rem;
+
+            i {
+                font-size: 20px;
+                padding: 0 .5rem;
+                color: $point;
+            }
+
+            span {
+                color: $point;
+            }
+        }
+
+        span.popup {
+            display: flex;
+            align-items: center;
+            font-size: .8rem;
+            color: $point;
+            cursor: pointer;
+            padding: 0 1rem;
+
+            i {
+                font-size: 20px;
+                padding: 0 .5rem;
+                color: $point;
+            }
+
+            span {
+                color: $point;
+            }
+        }
+    }
+}

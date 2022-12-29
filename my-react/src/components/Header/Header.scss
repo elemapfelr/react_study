@@ -1,0 +1,307 @@
+@import "./../../scss/color";
+
+header {
+    width: 100%;
+    height: auto;
+    min-height: 80px;
+    box-sizing: border-box;
+    background-color: $fff;
+    display: grid;
+    grid-template-columns: repeat(20, 5%);
+    border-bottom: 1px solid $gray-light;
+
+    .header_left {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        position: relative;
+        justify-self: start;
+        cursor: pointer;
+
+        i {
+            font-size: 24px;
+            padding: 27px 20px;
+            color: $gray-dark;
+        }
+
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 0;
+            height: 0;
+            top: 50%;
+            left: 15px;
+            transform: translate(-100%, -50%);
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-right: 8px solid $point;
+        }
+    }
+
+    .header_mid {
+        grid-column-start: 3;
+        grid-column-end: 17;
+        display: grid;
+        grid-template-columns: repeat(20, 5%);
+        grid-template-rows: repeat(5, 20%);
+
+        span.goBtn{
+            opacity: .1;
+            transition: all .2s;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            i{
+                color: $gray;
+                font-size: 2rem;
+            }
+
+            &.leftGo{
+                grid-column: 1/2;
+                grid-row: 1/6;
+                &:hover{
+                    opacity: 1;
+                }
+            }
+
+            &.rightGo{
+                grid-column: 13/14;
+                grid-row: 1/6;
+                &:hover{
+                    opacity: 1;
+                }
+            }
+        }
+
+        .checkList{
+            grid-column: 2/13;
+            grid-row: 2/5;
+            overflow: hidden;
+            position: relative;
+
+            ul.listBarWrap {
+                width: 300%;
+                height: 100%;
+                display: flex;
+                transition: all .2s;
+                position: absolute;
+                top: 0;
+                left: 0;
+
+                li.listBar{
+                    width: calc(100% / 3);
+                    height: 100%;
+
+                    ul.alarmBox {
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+        
+                        li {
+                            // width: 20%;
+                            padding: 0 .3rem;
+        
+                            span {
+                                width: 10px;
+                                height: 10px;
+                                border-radius: 5px;
+                                display: block;
+                                margin: 0 auto;
+        
+                                &.newAlarm {
+                                    background-color: $crush;
+                                    position: relative;
+        
+                                    &::after {
+                                        content: '';
+                                        position: absolute;
+                                        display: block;
+                                        width: 10px;
+                                        height: 10px;
+                                        border-radius: 5px;
+                                        border: 1px solid $crush;
+                                        top: 50%;
+                                        left: 50%;
+                                        transform: translate(-50%, -50%);
+                                        animation: alert infinite 1s ease-out;
+                                    }
+                                }
+                            }
+        
+                            p {
+                                margin: 0 auto;
+                                text-align: center;
+                                font-size: .8rem;
+                            }
+        
+                            small {
+                                margin: 0 auto;
+                                text-align: center;
+                                font-size: .7rem;
+                                display: block;
+                            }
+                        }
+                    }
+        
+                }
+            }
+        }
+
+        ul.checkListPageBtn{
+            grid-column: 1/14;
+            grid-row: 5/6;
+            display: flex;
+            align-items: bottom;
+            justify-content: space-between;
+            margin: 0 auto;
+            
+            li{
+                width: 50px;
+                height: 100%;
+                cursor: pointer;
+                padding: 2px 5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                span{
+                    width: 35px;
+                    height: 3px;
+                    border-radius: 3px;
+                    background-color: $gray-light;
+                }
+
+                &:hover{
+                    span{
+                        background-color: transparentize($gray, .5);
+                    }
+                }
+
+                &.on{
+                    span{
+                        background-color: $gray;
+                    }
+                }
+            }
+        }
+
+        .userBox {
+            grid-column-start: 14;
+            grid-column-end: 21;
+            grid-row-start: 3;
+            grid-row-end: 4;
+            display: flex;
+            align-items: center;
+            justify-content: right;
+            padding: .6rem;
+            align-self: center;
+
+            img {
+                width: 45px;
+                height: auto;
+                margin: 0 1rem 0 0;
+                border-radius: 25px;
+            }
+
+            .middleBox {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+
+                p.helloUser {
+                    text-align: right;
+                    font-size: .875rem;
+                    color: $point !important;
+                    margin-bottom: .5rem;
+                }
+
+                .flex{
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    margin-bottom: .2rem;
+
+                    span.timeOut {
+                        font-size: .7rem;
+                        font-weight: 300;
+                        margin-right: .5rem;
+
+                        &.crush {
+                            color: $crush;
+                        }
+
+                        strong {
+                            font-weight: 500;
+                        }
+
+                    }
+
+                    #refreshToken{
+                        margin-right: .5rem;
+                    }
+
+                    #mypage{
+                        border-radius: 5px;
+                    }
+
+                    #refreshToken, #mypage {
+                        font-size: .6rem;
+                        padding: .2rem;
+                    }
+                }
+            }
+        }
+
+        span.logOut {
+            min-width: 100px;
+            transition: all .2s;
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+            cursor: pointer;
+            filter: brightness(1);
+
+            &:hover {
+                filter: brightness(.7);
+            }
+
+            i {
+                color: $gray;
+                font-size: 1rem;
+                padding-left: 10px;
+            }
+
+            p {
+                color: $gray;
+                font-weight: 300;
+                font-size: .8rem;
+            }
+        }
+    }
+
+    .header_right {
+        grid-column-start: 20;
+        grid-column-end: 21;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        cursor: pointer;
+
+        i {
+            font-size: 25px;
+            padding: 27px 20px;
+            color: transparentize($gray-dark, .5);
+            transition: all .2s;
+        }
+
+        &:hover {
+            i {
+                color: $gray-dark;
+            }
+        }
+    }
+}

@@ -1,0 +1,128 @@
+@import "./../../scss/color", "./../../scss/animation";
+
+.left {
+	grid-column-start: 1;
+	grid-column-end: 2;
+	background-color: $point-darkest;
+	position: relative;
+
+	menu {
+		width: 100%;
+		height: auto;
+		max-height: 100vh;
+		min-width: 210px;
+		overflow-y: scroll;
+		transition: all .05s;
+
+		&::-webkit-scrollbar {
+			width: 0px;
+			height: 0px;
+		}
+
+		.logoTop {
+			width: 100%;
+			height: auto;
+			min-height: 80px;
+			display: flex;
+			align-items: center;
+			cursor: pointer;
+			position: relative;
+
+			img {
+				width: 70%;
+				height: auto;
+				display: block;
+				margin: 0 auto;
+			}
+
+			.version{
+				font-size: 8px;
+				color: $point;
+				position: absolute;
+				top: 0;
+				left: 5px;
+				z-index: 1;
+			}
+		}
+
+		.nav {
+			width: 100%;
+			height: auto;
+
+			ul {
+				width: 100%;
+
+				li {
+					width: 100%;
+					height: auto;
+					text-align: center;
+					display: flex;
+					align-items: center;
+					cursor: pointer;
+					transition: all .2s;
+
+					i {
+						color: $point;
+						font-size: 1.25rem;
+						padding: 12px 10%;
+						width: 20px;
+						pointer-events: none;
+					}
+
+					p {
+						color: $white-dark;
+						font-size: .9rem;
+						pointer-events: none;
+					}
+
+					&:hover {
+						backdrop-filter: brightness(120%);
+					}
+
+					&.active {
+						backdrop-filter: brightness(150%);
+						position: relative;
+
+						&::before {
+							content: '';
+							width: 5px;
+							height: 100%;
+							position: absolute;
+							left: 0;
+							top: 0;
+							background-color: $point;
+						}
+					}
+
+					&.locked {
+						background-color: $gray;
+						pointer-events: none;
+						position: relative;
+					}
+				}
+			}
+
+			.menuChange {
+				color: $fff;
+				font-weight: 400;
+				display: block;
+				padding: 38px 0;
+				filter: brightness(.7);
+				cursor: pointer;
+				transition: all .2s;
+
+				&:hover {
+					filter: brightness(1);
+				}
+
+				i {
+					width: 1rem;
+					height: auto;
+					display: inline-block;
+					padding: 0 10%;
+					transition: all 0.3s;
+				}
+			}
+		}
+	}
+}

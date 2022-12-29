@@ -1,0 +1,164 @@
+#wrap {
+	width: 100%;
+	height: 100vh;
+	display: grid;
+	grid-template-columns: 1fr 9fr;
+	min-width: 1400px;
+	overflow: hidden;
+
+	//메뉴 접힘
+	&.menuClose {
+		grid-template-columns: 1fr 31fr;
+
+		.left {
+			menu {
+				min-width: 60px;
+
+				.menuChange {
+					display: flex;
+					justify-content: center;
+
+					i {
+						transform: rotate(180deg);
+					}
+
+					span {
+						display: none;
+					}
+				}
+
+				.logoTop {
+					img {
+						width: 40px;
+						content: url("./../../../public/img/logo_mini.svg");
+					}
+					.version{
+						display: none;
+					}
+				}
+
+				.nav {
+					ul {
+						li {
+							justify-content: center;
+
+							i {
+								padding: 12px 0;
+							}
+
+							p {
+								display: none;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+    //서브메뉴 접힘
+	&.subMenuClose {
+		nav {
+			display: none;
+		}
+
+		main {
+			grid-column-start: 1;
+		}
+
+		.right {
+			header {
+				.header_left {
+					&::before {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+
+	//좌측리스트 접힘
+	&.leftListClose {
+		aside {
+			grid-column-start: 18;
+
+			.leftList {
+				display: none;
+			}
+
+			.rightList {
+				grid-column-start: 1;
+			}
+		}
+
+		main {
+			grid-column-end: 18;
+		}
+	}
+
+	//우측리스트 접힘, 좌측리스트 접힘
+	&.rightListClose {
+		aside {
+			display: none;
+		}
+
+		main {
+			grid-column-end: 21;
+		}
+	}
+
+	&.headerLeftIconHide{
+		header{
+			.header_left{
+				i{
+					display: none;
+				}
+			}
+		}
+	}
+
+	&.fullScreen {
+		height: 100vh;
+
+		.left {
+			display: none;
+		}
+
+		.right {
+			grid-column-start: 1;
+
+			header {
+				display: none;
+			}
+
+			nav {
+				display: none;
+			}
+
+			.container {
+				height: 100vh;
+
+				main {
+					grid-column-start: 1;
+					grid-column-end: 21;
+
+					section {
+						max-height: 94vh;
+					}
+				}
+
+				aside {
+					display: none;
+				}
+			}
+		}
+
+		&.popup{
+			a.fullsize{
+				display: none;
+			}
+			a.popup{
+				display: none;
+			}
+		}
+	}
+}

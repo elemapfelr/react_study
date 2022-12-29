@@ -1,0 +1,100 @@
+@mixin keyframes ($animation_name) {
+	@keyframes #{$animation_name} {
+		@content;
+	}
+}
+
+@include keyframes (rotate) {
+	from {
+		transform: translate(-50%, -50%) rotate(0deg);
+	}
+
+	to {
+		transform: translate(-50%, -50%) rotate(360deg);
+	}
+}
+
+@include keyframes (shake){
+    0% {
+        right: 0;
+    }
+
+    20% {
+        right: .3rem;
+    }
+
+    45% {
+        right: -.3rem;
+    }
+
+    55% {
+        right: .3rem;
+    }
+
+    80% {
+        right: -.3rem;
+    }
+
+    100% {
+        right: 0rem;
+    }
+}
+
+@include keyframes (glow) {
+	0% {
+		filter: brightness(100%);
+	}
+
+	50% {
+		filter: brightness(120%);
+	}
+
+	100% {
+		filter: brightness(100%);
+	}
+}
+@include keyframes (glow2) {
+	0% {
+		filter: brightness(100%);
+	}
+	50% {
+		filter: brightness(150%);
+	}
+	100% {
+		filter: brightness(100%);
+	}
+}
+
+@include keyframes (alert) {
+	0% {
+		transform: scale(1) translate(-50%, -50%);
+		opacity: 1;
+	}
+
+	100% {
+		transform: scale(1.5) translate(-30%, -30%);
+		opacity: 0;
+	}
+}
+
+@include keyframes (alert2) {
+	0% {
+		transform: scale(1);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(1.5);
+		opacity: 0;
+	}
+}
+
+@include keyframes (arrowRight) {
+	0% {
+		opacity: 1;
+		transform: translateY(-50%) translateX(0);
+	}
+	100% {
+		opacity: 0;
+		transform: translateY(-50%) translateX(50%);
+	}
+}

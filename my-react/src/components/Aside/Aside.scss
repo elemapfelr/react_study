@@ -1,0 +1,323 @@
+@import "./../../scss/color";
+
+aside {
+    grid-column-start: 15;
+    grid-column-end: 21;
+    display: grid;
+    grid-template-columns: repeat(10, 10%);
+    background-color: $fff;
+
+    h3 {
+        font-size: 1.2rem;
+        color: $point;
+        text-indent: 10px;
+        position: relative;
+
+        &::after {
+            content: '';
+            width: 5px;
+            height: 100%;
+            background-color: $point;
+            position: absolute;
+            top: 0;
+            left: 0px;
+        }
+    }
+
+    table {
+        width: 100%;
+        table-layout: fixed;
+
+        thead {
+            background-color: $gray;
+            color: $fff;
+            font-size: .8rem;
+
+            tr {
+                td {
+                    padding: 2px 0;
+                    text-indent: .1rem;
+                }
+            }
+        }
+
+        tbody {
+            color: #111111;
+
+            tr {
+                &:nth-child(even) {
+                    background-color: $white-dark;
+                }
+
+                &:last-child td {
+                    border-bottom: none;
+                }
+
+                td {
+                    font-size: .9rem;
+                    border-bottom: 1px solid $gray-light
+                }
+            }
+        }
+    }
+
+    .leftList {
+        position: relative;
+        grid-column-start: 1;
+        grid-column-end: 6;
+        border-left: 1px solid $gray-light;
+
+        span.close_leftList {
+            padding: .2rem .5rem;
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            i {
+                font-size: 1.2rem;
+                color: $point-light;
+                transition: all .2s;
+            }
+
+            &:hover {
+                i {
+                    color: $point;
+                }
+            }
+        }
+
+        .listSwitch{
+            width: 95%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: .5rem 0;
+
+            button{
+                flex: 1;
+            }
+        }
+
+        .searchOption{
+            width: 95%;
+            margin: 0 auto;
+            padding: .5rem 0;
+
+            .optionRow{
+                margin-bottom: .5rem;
+
+                &:last-child{
+                    margin-bottom: 0;
+                }
+
+                .checkBoxRow{
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    .checkBoxDiv{
+                        width: 50%;
+                    }
+                }
+
+                select{
+                    width: 75%;
+                }
+            }
+
+            .searchRow{
+                width: 100%;
+                button{
+                    width: 100%;
+                    height: 1.8rem;
+                }
+            }
+        }
+
+        .listTableBox {
+            table {
+                thead {
+                    tr {
+                        td {
+                            &:first-child {
+                                width: 5rem;
+                            }
+
+                            &:last-child {
+                                width: 3rem;
+                            }
+                        }
+                    }
+                }
+                tbody {
+                    tr {
+                        cursor: pointer;
+
+                        &.clicked {
+                            outline: 2px solid $point;
+                        }
+
+                        td {
+                            padding: 5px 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .rightList {
+        grid-column-start: 6;
+        grid-column-end: 11;
+        border-left: 1px solid $gray-light;
+
+            .searchOption{
+                width: 95%;
+                margin: 0 auto;
+                padding: .5rem 0;
+
+                .optionRow{
+                    margin-bottom: .5rem;
+
+                    &:last-child{
+                        margin-bottom: 0;
+                    }
+
+                    .checkBoxRow{
+                        display: flex;
+                        flex-wrap: wrap;
+
+                        .checkBoxDiv{
+                            width: 50%;
+                        }
+                    }
+
+                    select{
+                        width: 75%;
+                    }
+                }
+
+                .textInputRow{
+                    input[type="text"]{
+                        width: 75%;
+                        height: 1.8rem;
+                    }
+                    button{
+                        width: 25%;
+                        height: 1.8rem;
+                    }
+                }
+            }
+
+        ul {
+            border-top: 2px solid $point;
+
+            li {
+                margin: 10px 5px;
+                box-sizing: border-box;
+                background-color: $white;
+                padding: 2px 5px;
+                border-left: 5px solid $point-light;
+                cursor: pointer;
+
+                &:first-child {
+                    margin: 5px;
+                }
+
+                &.clicked {
+                    background-color: $gray-light;
+
+                    span {
+                        &.clickToOpen {
+                            display: none;
+                        }
+                    }
+
+                    &:hover {
+                        background-color: $gray-light;
+                    }
+                }
+
+                &.test{
+                    position: relative;
+                    &::after{
+                        content: "Test";
+                        position: absolute;
+                        display: block;
+                        top: .3rem;
+                        right: .3rem;
+                        color: $crush;
+                        font-size: .8rem;
+                    }
+                }
+
+                span {
+                    display: block;
+
+                    &.type {
+                        text-align: left;
+                        font-size: .8rem;
+                        font-weight: 500;
+                        color: $gray-dark;
+                        position: relative;
+                        
+                        &.법인{
+                            &::after{
+                                content: "\f058";
+                                position: absolute;
+                                top: 50%;
+                                transform: translateY(-50%);
+                                left: 1.7rem;
+                                display: block;
+                                font-size: .8rem;
+                                font-family: "Font Awesome 5 Free";
+                                font-weight: 500;
+                                color: $point;
+                            }
+                        }
+                    }
+
+                    &.clickToOpen {
+                        font-size: .7rem;
+                        text-align: right;
+                        transition: all .2s;
+                        color: $gray-light;
+                    }
+                }
+
+                p.company_name {
+                    color: $point-dark;
+                    font-size: 1rem;
+                    padding: 5px 0;
+                }
+
+                .card_detail {
+                    padding: 15px 0;
+
+                    .apply_test{
+                        float: right;
+                    }
+                    
+                    p {
+                        font-size: .8rem;
+                        color: $point-dark;
+
+                        &:last-child {
+                            color: $crush;
+                        }
+                    }
+                }
+
+                &:hover {
+                    background-color: $white-dark;
+
+                    span {
+                        &.clickToOpen {
+                            color: $gray-dark;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

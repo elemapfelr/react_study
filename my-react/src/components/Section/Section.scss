@@ -1,0 +1,167 @@
+@import "./../../scss/color";
+
+section {
+    width: 100%;
+    height: calc(100% - 50px);
+    max-height: calc(95vh - 100px);
+    position: relative;
+    overflow: hidden;
+    overflow-y: scroll;
+    padding: 10px;
+    box-sizing: border-box;
+
+    &::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $point;
+        border-radius: 5px;
+        background-clip: padding-box;
+        border: 2px solid transparent;
+
+        &:hover {
+            border: none;
+        }
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: $white;
+    }
+
+    h2 {
+        text-indent: 10px;
+        font-size: 2.5rem;
+        color: $point-dark;
+        margin: 0 auto;
+        position: relative;
+        font-weight: 300;
+    }
+
+    h3 {
+        font-size: 2rem;
+        color: $point-dark;
+        position: relative;
+        text-indent: 10px;
+
+        &::before {
+            content: '';
+            width: 5px;
+            height: 100%;
+            background-color: $point-dark;
+            position: absolute;
+            top: 0;
+            left: 0px;
+        }
+    }
+
+    h4 {
+        font-size: 1.5rem;
+        color: $point;
+        text-indent: 10px;
+    }
+
+    h5 {
+        font-size: 1.2rem;
+        color: $gray-dark;
+        font-weight: 700;
+        text-indent: 10px;
+    }
+
+    p {
+        font-weight: 300;
+
+        a {
+            color: $point;
+        }
+    }
+
+    article {
+        width: 100%;
+        background-color: $fff;
+        padding: 20px;
+        margin: 20px auto;
+        box-sizing: border-box;
+        border-bottom: 2px solid $gray-light;
+    }
+
+    table {
+        width: 100%;
+        max-height: 100%;
+        background-color: $fff;
+        font-size: .8rem;
+        border-spacing: 0;
+        table-layout: fixed;
+        word-wrap: break-word;
+
+        thead {
+            background-color: $gray;
+            color: $fff;
+
+            tr {
+                th {
+                    text-align: left;
+                    font-size: .8rem;
+                    font-weight: 500;
+                    padding: .2rem;
+                }
+
+                td {
+                    border: none;
+                    padding: .2rem;
+                }
+            }
+        }
+
+        tbody {
+            background-color: $fff;
+            color: #111111;
+
+            tr {
+                &:nth-child(even) {
+                    background-color: $white;
+                }
+
+                th {
+                    text-align: left;
+                    font-size: .8rem;
+                    font-weight: 500;
+                    border-bottom: 1px solid $gray-light;
+                    padding: .2rem;
+                }
+
+                td {
+                    border-bottom: 1px solid $gray-light;
+                    padding: .2rem;
+                }
+
+                &.point {
+                    background-color: transparentize($point, .7);
+                    outline: 2px solid $point;
+
+                    th,
+                    td {
+                        border: none;
+                    }
+                }
+
+                &.crush {
+                    background-color: transparentize($crush, .7) !important;
+
+                    &.point {
+                        outline: 2px solid $point;
+                    }
+                }
+
+                &.caution {
+                    background-color: transparentize(#ffa600, .7) !important;
+
+                    &.point {
+                        outline: 2px solid $point;
+                    }
+                }
+            }
+        }
+    }
+}
